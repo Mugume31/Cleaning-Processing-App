@@ -43,7 +43,7 @@ if uploaded_file is not None:
         st.dataframe(missing_values_df_filtered)
 
         # Check if a district is selected
-        selected_district_1 = st.selectbox('Select District', ['All'] + list(df['District'].unique()))
+        selected_district_1 = st.selectbox('Select District', ['All'] + list(df['District'].unique()),key="district_1")
         if selected_district_1 == 'All':
             filtered_df = df  # No specific district selected, use the entire DataFrame
             title_suffix = 'All Districts'
