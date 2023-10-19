@@ -21,7 +21,7 @@ st.set_option('deprecation.showPyplotGlobalUse', False)
 # In[ ]:
 
 
-df = pd.DataFrame()
+df = None
 uploaded_file = st.sidebar.file_uploader("Upload Excel file", type=["xlsx", "xls"])
 # Check if a file is uploaded
 if uploaded_file is not None:
