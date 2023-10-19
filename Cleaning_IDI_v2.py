@@ -57,7 +57,7 @@ if uploaded_file is not None:
 
         # Display the results in Streamlit
         st.subheader(f'Overall Percentage of Columns with Missing Values ({title_suffix})')
-        st.markdown(f"**Percentage of Columns with Missing Values:** {percentage_columns_with_missing_filtered:.2f%}")
+        st.markdown(f"**Percentage of Columns with Missing Values:** {percentage_columns_with_missing_filtered:.2f}%")
 
         st.subheader("Duplicate IDs")
 
