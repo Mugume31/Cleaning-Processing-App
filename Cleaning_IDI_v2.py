@@ -76,7 +76,7 @@ if uploaded_file is not None:
         selected_district_2 = st.selectbox('Select District', ['All'] + list(df['District'].unique()), key='district_2')
 
         # Check if a district is selected
-        selected_district_2 = st.selectbox('Select District', ['All'] + list(df['District'].unique()))
+        
         if selected_district_2 == 'All':
             filtered_df = df  # No specific district selected, use the entire DataFrame
         else:
