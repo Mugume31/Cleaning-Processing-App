@@ -36,17 +36,7 @@ if uploaded_file is not None:
 else:
    st.sidebar.info("Please upload an Excel file.")
 
-
-# In[7]:
-
-
-
-
-import streamlit as st
-import pandas as pd
-
 # Assuming your DataFrame is named df
-
 
 # Add a filter for the "District" column
 selected_district = st.selectbox('Select District', ['All'] + list(df['District'].unique()))
