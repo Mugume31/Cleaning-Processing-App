@@ -185,7 +185,8 @@ if uploaded_file is not None:
         totals_row = merged_pivot[['Below_17', 'Above_18', 'Child_Care_Giver', 'Target', 'Total']].sum()
         totals_row["Achieved"] = totals_row['Total'] / totals_row['Target'] * 100
         totals_row['CGVOR'] = totals_row['Child_Care_Giver'] / totals_row['Total'] * 100
-        merged_pivot = merged_pivot.append(totals_row, ignore_index=True)
+        totals_df = pd.DataFrame([totals_row.values], columns=totals_row.index)
+        merged_pivot=pd.concat([merged_pivot,totals_df])
 
         merged_pivot.at[11, "District"] = "Total"
         merged_pivot_rounded = merged_pivot.round(0)
