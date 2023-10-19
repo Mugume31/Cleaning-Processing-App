@@ -185,6 +185,7 @@ if uploaded_file is not None:
         totals_row = merged_pivot[['Below_17', 'Above_18', 'Child_Care_Giver', 'Target', 'Total']].sum()
         totals_row["Achieved"] = totals_row['Total'] / totals_row['Target'] * 100
         totals_row['CGVOR'] = totals_row['Child_Care_Giver'] / totals_row['Total'] * 100
+        totals_row["District"]= "Total"
         totals_df = pd.DataFrame([totals_row.values], columns=totals_row.index)
         merged_pivot=pd.concat([merged_pivot,totals_df])
 
@@ -192,6 +193,7 @@ if uploaded_file is not None:
         merged_pivot_rounded = merged_pivot.round(0)
 
         merged_pivot_rounded.rename(columns={'Achieved': 'Achieved %', 'CGVOR': 'CGVOR %'})
+        merged_pivot_rounded= merged_pivot_rounded.reset_index(drop=True)
 
         def color_format(val):
             if val < 60:
@@ -202,14 +204,14 @@ if uploaded_file is not None:
                 return 'background-color: green'
 
         # Identify numeric columns
-        numeric_columns = merged_pivot.select_dtypes(include='number').columns
+        numeric_columns = merged_pivot_rounded.select_dtypes(include='number').columns
 
         # Define columns to apply coloring
         columns_to_color = ["Achieved", "CGVOR"]
 
         # Combine styling for color and no decimal formatting
         styled_df_combined = (
-            merged_pivot.style
+            merged_pivot_rounded.style
             .applymap(color_format, subset=columns_to_color)
             .format({col: "{:.0f}" for col in numeric_columns})
         )
