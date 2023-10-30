@@ -1,1 +1,1 @@
-# Cleaning-Processing-App
+This is code i wrote to develop a dashboard in Streamlit for a client that could help in cleaning data and developing reports after the data has been cleaned.Due to an NDA , i can only show the code and no outputs. 
